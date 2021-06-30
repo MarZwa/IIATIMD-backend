@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => 'auth:api'], function () {
+
+    Route::get('/workouts', [App\Http\Controllers\WorkoutController::class, 'workouts']);
+    Route::get('/workout/{id}', [App\Http\Controllers\WorkoutController::class, 'show']);
+    Route::get('/workout/{id}/exercises', [App\Http\Controllers\WorkoutController::class, 'exercises']);
+});
+
+//LOGIN USER
+Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
