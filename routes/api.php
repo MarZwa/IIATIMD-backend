@@ -27,3 +27,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
 //LOGIN USER
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
+
+
+//REGISTER USER
+Route::post('/register', [App\Http\Controllers\UserController::class, 'register']);

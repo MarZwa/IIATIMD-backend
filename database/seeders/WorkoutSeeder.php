@@ -15,11 +15,11 @@ class WorkoutSeeder extends Seeder
     public function run()
     {
         DB::table('workout')->insert([
-            'name' => "Workout 1",
+            'name' => "Tricep",
         ]);
 
         DB::table('workout')->insert([
-            'name' => "Workout 2",
+            'name' => "Chest",
         ]);
     }
 }
